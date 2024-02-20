@@ -9,6 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "axios": "^1.6.7",
+    "jwt-decode": "^4.0.0",
     "primevue": "^3.48.1",
     "vue": "^3.4.15",
     "vue-router": "^4.2.5"

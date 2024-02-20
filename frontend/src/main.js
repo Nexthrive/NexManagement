@@ -5,7 +5,7 @@ import router from "./router";
 
 // primevue
 import PrimeVue from "primevue/config";
-import "primevue/resources/themes/aura-dark-purple/theme.css";
+import "primevue/resources/themes/aura-light-purple/theme.css";
 
 const app = createApp(App);
 
@@ -13,4 +13,3 @@ app.use(PrimeVue);
 app.use(router);
 
 app.mount("#app");
-
