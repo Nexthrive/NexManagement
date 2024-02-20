@@ -1,7 +1,7 @@
 <script setup>
 const emits = defineEmits(["closeFormModal"]);
 import "primeicons/primeicons.css";
-import "primeicons/primeicons.css";
+import Dropdown from 'primevue/dropdown';
 const closeFormModal = () => {
   emits("closeFormModal");
 };
