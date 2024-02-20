@@ -1,6 +1,6 @@
 <script setup>
 	import { ref } from "vue";
-	import { useRoute } from "vue-router";
+	import { useRouter } from "vue-router";
 	import { jwtDecode } from "jwt-decode";
 	import axios from "axios";
 
@@ -8,14 +8,14 @@
 	import InputText from "primevue/inputtext";
 	import Password from "primevue/password";
 
-	const route = useRoute();
+	const router = useRouter();
 
 	// refs
 	const Username = ref("");
 	const Passphrase = ref("");
 
 	const login = async () => {
-		const res = await axios.post("http://localhost/nex/signup", {
+		const res = await axios.post("http://localhost:8080/nex/login", {
 			username: Username.value,
 			passphrase: Passphrase.value,
 		});
@@ -29,7 +29,7 @@
 			localStorage.setItem("jwtToken", token);
 			localStorage.setItem("UserID", UserID);
 
-			route.push("/");
+			router.push("/");
 		}
 	};
 </script>

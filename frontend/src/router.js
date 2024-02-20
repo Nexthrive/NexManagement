@@ -9,26 +9,44 @@ const routes = [
 		path: "/",
 		component: Dashboard,
 		name: "Dashboard",
-		// meta: {
-		// 	requiresAuth: true,
-		// },
+		meta: {
+			requiresAuth: true,
+		},
+	},
+	{
+		path: "/usermanage",
+		component: UserManage,
+		name: "UserManage",
+		meta: {
+			requiresAuth: true,
+		},
 	},
 	{
 		path: "/login",
 		component: Login,
 		name: "Login",
-		path: "/usermanage",
-		component: UserManage,
-		name: "UserManage",
-		// meta: {
-		// 	requiresAuth: true,
-		// },
 	},
 ];
 
 const router = createRouter({
 	history: createWebHistory(),
 	routes,
+});
+
+router.beforeEach((to, from, next) => {
+	const requiresAuth = to.matched.some((record) => record.meta.requiresAuth);
+
+	if (requiresAuth) {
+		const jwtToken = localStorage.getItem("jwtToken");
+
+		if (!jwtToken) {
+			next({ name: "Login" });
+		} else {
+			next();
+		}
+	} else {
+		next();
+	}
 });
 
 export default router;
