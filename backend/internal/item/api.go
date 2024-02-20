@@ -17,6 +17,8 @@ func RegisterHandlers(r *routing.RouteGroup, service Service, authHandler routin
 
 	r.Use(authHandler)
 
+	r.Put("/items/<id>", res.update)
+	r.Delete("/items/<id>", res.delete)
 	r.Post("/items", res.create)
 }
 
@@ -60,4 +62,28 @@ func (r resource) create(c *routing.Context) error {
 		return err
 	}
 	return c.WriteWithStatus(item, http.StatusCreated)
+}
+
+func (r resource) update(c *routing.Context) error {
+	var input UpdateItemReq
+	if err := c.Read(&input); err != nil {
+		r.logger.With(c.Request.Context()).Info(err)
+		return errors.BadRequest("")
+	}
+
+	item, err := r.service.Update(c.Request.Context(), c.Param("id"), input)
+	if err != nil {
+		return err
+	}
+
+	return c.Write(item)
+}
+
+func (r resource) delete(c *routing.Context) error {
+	item, err := r.service.Delete(c.Request.Context(), c.Param("id"))
+	if err != nil {
+		return err
+	}
+
+	return c.Write(item)
 }

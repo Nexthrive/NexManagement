@@ -11,10 +11,10 @@ import (
 type Repository interface {
 	Get(ctx context.Context, id string) (entity.Item, error)
 	Count(ctx context.Context) (int, error)
-
 	Create(ctx context.Context, item entity.Item) error
 	Delete(ctx context.Context, id string) error
 	Query(ctx context.Context, offset, limit int) ([]entity.Item, error)
+	Update(ctx context.Context, item entity.Item) error
 }
 
 type repository struct {
@@ -34,6 +34,10 @@ func (r repository) Get(ctx context.Context, id string) (entity.Item, error) {
 
 func (r repository) Create(ctx context.Context, item entity.Item) error {
 	return r.db.With(ctx).Model(&item).Insert()
+}
+
+func (r repository) Update(ctx context.Context, item entity.Item) error {
+	return r.db.With(ctx).Model(&item).Update()
 }
 
 func (r repository) Delete(ctx context.Context, id string) error {
