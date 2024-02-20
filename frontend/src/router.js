@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 
 import Dashboard from "./components/pages/Dashboard.vue";
 import Login from "./components/pages/Login.vue";
+import UserManage from "./components/pages/UserManage.vue";
 
 const routes = [
 	{
@@ -16,6 +17,12 @@ const routes = [
 		path: "/login",
 		component: Login,
 		name: "Login",
+		path: "/usermanage",
+		component: UserManage,
+		name: "UserManage",
+		// meta: {
+		// 	requiresAuth: true,
+		// },
 	},
 ];
 
