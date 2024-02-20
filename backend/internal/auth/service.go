@@ -73,24 +73,31 @@ func NewService(signingKey string, tokenExpiration int, logger log.Logger, repo 
 }
 
 func (s service) Create(ctx context.Context, req CreateUser) (User, error) {
-	if err := req.Validate(); err != nil {
-		return User{}, err
-	}
-	id := entity.GenerateID()
-	err := s.repo.Create(ctx, entity.User{
-		ID:        id,
-		Username:      req.Username,
-		Passphrase: req.Passphrase,
-    Email: req.Email,
-    No_telp: req.No_telp,
-    Role: req.Role,
+    if err := req.Validate(); err != nil {
+        return User{}, err
+    }
+    id := entity.GenerateID()
 
-	})
-	if err != nil {
-		return User{}, err
-	}
-	return s.Get(ctx, id)
+    // Hashing passphrase
+    hashedPassphrase, err := bcrypt.GenerateFromPassword([]byte(req.Passphrase), bcrypt.DefaultCost)
+    if err != nil {
+        return User{}, err
+    }
+
+    err = s.repo.Create(ctx, entity.User{
+        ID:         id,
+        Username:   req.Username,
+        Passphrase: string(hashedPassphrase), // Simpan passphrase yang telah di-hash
+        Email:      req.Email,
+        No_telp:    req.No_telp,
+        Role:       req.Role,
+    })
+    if err != nil {
+        return User{}, err
+    }
+    return s.Get(ctx, id)
 }
+
 func (s *service) Login(ctx context.Context, loginReq LoginUser) (string, error) {
 	user, err := s.authenticate(ctx, loginReq)
 	if err != nil {
