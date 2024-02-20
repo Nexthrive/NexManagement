@@ -1,41 +1,75 @@
 <script setup>
-import { ref } from 'vue'
-
-defineProps({
-  msg: String,
-})
-
-const count = ref(0)
+// import { ref } from 'vue'
+import Navbar from "../utils/Navbar.vue";
 </script>
 
 <template>
-  <h1>{{ msg }}</h1>
+  <div class="container">
+    <Navbar />
+    <!-- dashboard content -->
+    <div class="dashboard-container">
+      <!-- header -->
+      <div class="header">
+        <h1>Welcomez</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi exercitationem aut qui ratione <br> necessitatibus
+          id sunt eveniet, blanditiis laudantium cupiditate vel quaerat at, tempora, iure iusto eos!</p>
+      </div>
 
-  <div class="card">
-    <button type="button" @click="count++">count is {{ count }}</button>
-    <p>
-      Edit
-      <code>components/HelloWorld.vue</code> to test HMR
-    </p>
+      <!-- dashboard-content -->
+      <div class="card-container">
+        <!-- list card -->
+
+        <div class="card" >
+            <h2>Jumlah Barang</h2>
+            <h1>770</h1>
+        </div>
+
+        <div class="card">
+            <h2>Stock Total</h2>
+            <h1>100</h1>
+        </div>
+
+      </div>
+    </div>
   </div>
-
-  <p>
-    Check out
-    <a href="https://vuejs.org/guide/quick-start.html#local" target="_blank"
-      >create-vue</a
-    >, the official Vue + Vite starter
-  </p>
-  <p>
-    Install
-    <a href="https://github.com/vuejs/language-tools" target="_blank">Volar</a>
-    in your IDE for a better DX
-  </p>
-  <p class="read-the-docs">Click on the Vite and Vue logos to learn more</p>
 </template>
 
 <style scoped>
-.read-the-docs {
-  color: #888;
+.container {
+  width: 100vw;
+  height: 100vh;
 }
-</style>
 
+.header {
+  font-size: 20px;
+  color: var(--brand-dark);
+  margin: 10px;
+  padding-top: 20px;
+}
+
+.card-container {
+  color:var(--brand-dark);
+  margin-top: 50px;
+  display: flex;
+  gap: 20px;
+}
+
+.card {
+  background-color: var(--brand-primary);
+  width: 250px;
+  padding: 10px;
+  color: var(--brand-light);
+  border-radius: 10px;
+}
+
+.card h1 {
+  font-size: 50px;
+  margin: 0;
+  padding: 0;
+}
+.card h2 {
+  margin: 0;
+  padding: 0;
+}
+
+</style>
