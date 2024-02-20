@@ -1,75 +1,101 @@
 <script setup>
-// import { ref } from 'vue'
-import Navbar from "../utils/Navbar.vue";
+	// import { ref } from 'vue'
+	import Navbar from "../utils/Navbar.vue";
 </script>
 
 <template>
-  <div class="container">
-    <Navbar />
-    <!-- dashboard content -->
-    <div class="dashboard-container">
-      <!-- header -->
-      <div class="header">
-        <h1>Welcomez</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi exercitationem aut qui ratione <br> necessitatibus
-          id sunt eveniet, blanditiis laudantium cupiditate vel quaerat at, tempora, iure iusto eos!</p>
-      </div>
+	<div class="container">
+		<Navbar />
+		<!-- Welcome section -->
+		<div class="dashboard-container">
+			<div class="header">
+				<h1>Welcome to <span class="highlight">NexManagement</span></h1>
+				<p>
+					Unlock the future of seamless business operations with NexManagement!
+					Immerse yourself in a world of innovation, where
+					<span class="highlight">efficiency</span> meets
+					<span class="highlight">intuition</span>. Lorem ipsum dolor sit amet,
+					consectetur adipisicing elit. Quasi exercitationem aut qui ratione
+					necessitatibus id sunt eveniet, blanditiis laudantium cupiditate vel
+					quaerat at, tempora, iure iusto eos!
+				</p>
+			</div>
 
-      <!-- dashboard-content -->
-      <div class="card-container">
-        <!-- list card -->
+			<!-- Dashboard content -->
+			<div class="card-container">
+				<!-- Statistics cards -->
+				<div class="card">
+					<h2>Total Products</h2>
+					<h1>770</h1>
+				</div>
 
-        <div class="card" >
-            <h2>Jumlah Barang</h2>
-            <h1>770</h1>
-        </div>
-
-        <div class="card">
-            <h2>Stock Total</h2>
-            <h1>100</h1>
-        </div>
-
-      </div>
-    </div>
-  </div>
+				<div class="card">
+					<h2>Total Stock</h2>
+					<h1>100</h1>
+				</div>
+			</div>
+		</div>
+	</div>
 </template>
 
 <style scoped>
-.container {
-  width: 100vw;
-  height: 100vh;
-}
+	.container {
+		width: 80vw;
+		height: 100vh;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		margin-top: 30px;
+	}
 
-.header {
-  font-size: 20px;
-  color: var(--brand-dark);
-  margin: 10px;
-  padding-top: 20px;
-}
+	.dashboard-container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
 
-.card-container {
-  color:var(--brand-dark);
-  margin-top: 50px;
-  display: flex;
-  gap: 20px;
-}
+	.header {
+		font-size: 20px;
+		color: var(--brand-dark);
+		margin: 10px;
+		padding-top: 20px;
+	}
 
-.card {
-  background-color: var(--brand-primary);
-  width: 250px;
-  padding: 10px;
-  color: var(--brand-light);
-  border-radius: 10px;
-}
+	.header {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
 
-.card h1 {
-  font-size: 50px;
-  margin: 0;
-  padding: 0;
-}
-.card h2 {
-  margin: 0;
-  padding: 0;
-}
+	.header p {
+		text-align: center;
+	}
 
+	.card-container {
+		color: var(--brand-dark);
+		margin-top: 10px;
+		display: flex;
+		gap: 20px;
+	}
+
+	.card {
+		background-color: var(--brand-primary);
+		width: 250px;
+		padding: 10px;
+		color: var(--brand-light);
+		border-radius: 10px;
+	}
+
+	.card h1 {
+		font-size: 50px;
+		margin: 0;
+		padding: 0;
+	}
+	.card h2 {
+		margin: 0;
+		padding: 0;
+	}
 </style>

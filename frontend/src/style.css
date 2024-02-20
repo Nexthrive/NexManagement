@@ -18,4 +18,8 @@
 
 body {
 	background-color: var(--brand-light);
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	background: var(--brand-gradient);
 }

@@ -73,8 +73,12 @@
 		align-items: center;
 	}
 
+	body {
+		background: var(--brand-gradient);
+	}
+
 	form {
-		background-color: rgb(123, 21, 182);
+		background-color: var(--brand-primary);
 		padding: 50px 20px;
 		border-radius: 7px;
 		width: 30%;
