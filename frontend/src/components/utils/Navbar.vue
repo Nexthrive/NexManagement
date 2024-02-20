@@ -12,7 +12,7 @@
       <div class="nav-links">
         <router-link to="/">Dashboard</router-link>
         <router-link to="/usermanage">User</router-link>
-        <router-link to="/about">Inevtory</router-link>
+        <router-link to="/inventory">Inevtory</router-link>
         <router-link to="/about">About</router-link>
       </div>
     </div>

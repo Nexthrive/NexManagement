@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from "vue-router";
 
 import Dashboard from "./components/pages/Dashboard.vue";
 import UserManage from "./components/pages/UserManage.vue";
+import Inventory from "./components/pages/Inventory.vue";
 
 const routes = [
 	{
@@ -17,6 +18,14 @@ const routes = [
 		path: "/usermanage",
 		component: UserManage,
 		name: "UserManage",
+		// meta: {
+		// 	requiresAuth: true,
+		// },
+	},
+	{
+		path: "/inventory",
+		component: Inventory,
+		name: "Inventory",
 		// meta: {
 		// 	requiresAuth: true,
 		// },
