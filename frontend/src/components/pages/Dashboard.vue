@@ -35,6 +35,10 @@ import Navbar from "../utils/Navbar.vue";
 </template>
 
 <style scoped>
+.dashboard-container {
+  width: 100vw;
+  margin: 20px;
+}
 .container {
   width: 100vw;
   height: 100vh;
