@@ -1,37 +1,37 @@
 <script setup>
 // import { ref } from 'vue'
 import Navbar from "../utils/Navbar.vue";
-import EditForm from "../utils/EditForm.vue";
-import AddForm from "../utils/AddForm.vue";
+import EditBarangForm from "../utils/EditBarangForm.vue";
+import AddBarangForm from "../utils/AddBarangForm.vue";
 import { ref } from "vue";
 
-const showEditForm = ref(false);
-const showEditFormModal = () => {
-  showEditForm.value = true;
+const showEditBarangForm = ref(false);
+const showEditBarangFormModal = () => {
+  showEditBarangForm.value = true;
 };
-const closeFormModal = () => {
-  showEditForm.value = false;
+const closeBarangEditModal = () => {
+  showEditBarangForm.value = false;
 };
 
 
-const showAddForm = ref(false);
-const showAddFormModal = () => {
-  showAddForm.value = true;
+const showAddBarangForm = ref(false);
+const showAddBarangFormModal = () => {
+  showAddBarangForm.value = true;
 };
-const closeAddModal = () => {
-  showAddForm.value = false;
+const closeBarangAddModal = () => {
+  showAddBarangForm.value = false;
 };
 
 </script>
 
 <template>
-  <div v-if="showAddForm" class="overlay"></div>
-  <div v-if="showEditForm" class="overlay"></div>
-  <EditForm v-if="showEditForm" @close-form-modal="closeFormModal" :class="{ 'fade-scale-in': showEditForm }" />
-  <AddForm v-if="showAddForm" @close-add-modal="closeAddModal" :class="{ 'fade-scale-in': showAddForm }" />
+  <div v-if="showAddBarangForm" class="overlay"></div>
+  <div v-if="showEditBarangForm" class="overlay"></div>
+  <EditBarangForm v-if="showEditBarangForm" @close-form-modal="closeBarangEditModal" :class="{ 'fade-scale-in': showEditBarangForm }" />
+  <AddBarangForm v-if="showAddBarangForm" @close-add-modal="closeBarangAddModal" :class="{ 'fade-scale-in': showAddBarangForm }" />
   <div class="container">
     <Navbar />
-    <button class="add-button" @click="showAddFormModal">Add User</button>
+    <button class="add-button" @click="showAddBarangFormModal">Add Barang</button>
     <div class="data-user-container">
       <table>
         <thead>
@@ -50,7 +50,7 @@ const closeAddModal = () => {
             <td>12</td>
             <td>20000</td>
             <td class="action-button">
-              <button @click="showEditFormModal">Edit</button>
+              <button @click="showEditBarangFormModal">Edit</button>
               <button>Delete</button>
             </td>
           </tr>
@@ -167,7 +167,6 @@ tbody tr:nth-child(even) {
     transform: scale(1);
   }
 }
-
 </style>
 
 
