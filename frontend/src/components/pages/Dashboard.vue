@@ -81,12 +81,23 @@
 		gap: 20px;
 	}
 
+	.highlight {
+		color: var(--brand-primary);
+	}
+
 	.card {
 		background-color: var(--brand-primary);
 		width: 250px;
-		padding: 10px;
+		padding: 20px;
 		color: var(--brand-light);
-		border-radius: 10px;
+		border-radius: 15px;
+		box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+		text-align: center;
+		transition: transform 0.3s ease;
+	}
+
+	.card:hover {
+		transform: scale(1.05);
 	}
 
 	.card h1 {
