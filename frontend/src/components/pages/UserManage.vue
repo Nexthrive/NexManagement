@@ -73,18 +73,19 @@ table {
 
 th,
 td {
-  border: none; /* Menghapus garis-garis */
+  border: none; 
   /* text-align: left; */
   padding: 8px;
   color: var(--brand-dark);
 }
+
 
 th {
   background-color: #f2f2f2;
 }
 
 tbody tr:nth-child(even) {
-  background-color: #f9f9f9; /* Belang-belang warna abu-abu */
+  background-color: #f9f9f9; 
 }
 
 .action-button {
@@ -106,11 +107,11 @@ tbody tr:nth-child(even) {
   margin: 2px 2px;
   cursor: pointer;
   border-radius: 3px;
-  transition: background-color 0.3s ease; /* Efek transisi saat mengarahkan kursor */
+  transition: background-color 0.3s ease; 
 }
 
 .action-button button:hover {
-  background-color: var(--brand-primary-hover); /* Warna berbeda saat mengarahkan kursor */
+  background-color: var(--brand-primary-hover);
 }
 
 
