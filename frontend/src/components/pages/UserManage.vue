@@ -65,18 +65,26 @@ table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 th,
 td {
-  border: 1px solid #dddddd;
-  text-align: left;
+  border: none; /* Menghapus garis-garis */
+  /* text-align: left; */
   padding: 8px;
   color: var(--brand-dark);
 }
 
 th {
   background-color: #f2f2f2;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9; /* Belang-belang warna abu-abu */
 }
 
 .action-button {
@@ -98,7 +106,14 @@ th {
   margin: 2px 2px;
   cursor: pointer;
   border-radius: 3px;
+  transition: background-color 0.3s ease; /* Efek transisi saat mengarahkan kursor */
 }
+
+.action-button button:hover {
+  background-color: var(--brand-primary-hover); /* Warna berbeda saat mengarahkan kursor */
+}
+
+
 </style>
 
 
