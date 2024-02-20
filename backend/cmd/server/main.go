@@ -85,7 +85,7 @@ func buildHandler(logger log.Logger, db *dbcontext.DB, cfg *config.Config) http.
 
 	healthcheck.RegisterHandlers(router, Version)
 
-	rg := router.Group("/v1")
+	rg := router.Group("/nex")
 
 	authHandler := auth.Handler(cfg.JWTSigningKey)
 
