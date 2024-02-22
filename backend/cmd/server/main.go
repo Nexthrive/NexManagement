@@ -83,9 +83,11 @@ func buildHandler(logger log.Logger, db *dbcontext.DB, cfg *config.Config) http.
 		cors.Handler(cors.AllowAll),
 	)
 
+  var repository auth.Repository = auth.NewRepo(db,logger)
+
 	healthcheck.RegisterHandlers(router, Version)
 
-	rg := router.Group("/v1")
+	rg := router.Group("/next")
 
 	authHandler := auth.Handler(cfg.JWTSigningKey)
 
@@ -95,8 +97,8 @@ func buildHandler(logger log.Logger, db *dbcontext.DB, cfg *config.Config) http.
 	)
 
 	auth.RegisterHandlers(rg.Group(""),
-		auth.NewService(cfg.JWTSigningKey, cfg.JWTExpiration, logger),
-		logger,
+		auth.NewService(cfg.JWTSigningKey, cfg.JWTExpiration ,logger, repository),
+		authHandler, logger,
 	)
 
 	item.RegisterHandlers(rg.Group(""),
